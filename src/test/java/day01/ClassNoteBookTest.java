@@ -3,6 +3,9 @@ package day01;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClassNoteBookTest {
@@ -23,6 +26,11 @@ class ClassNoteBookTest {
     @Test
     void addStudentNull() {
         assertThrows(NullPointerException.class, () -> cnb.addStudent(null));
+    }
+
+    @Test
+    void sortedTest() {
+        assertEquals(new TreeSet<>(Set.of(pistike, jancsi, juliska)), cnb.getNotebook().keySet());
     }
 
     @Test
