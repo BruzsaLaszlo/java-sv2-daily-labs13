@@ -3,8 +3,7 @@ package day01;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClassNoteBookTest {
 
@@ -28,17 +27,20 @@ class ClassNoteBookTest {
 
     @Test
     void addStudent() {
-        assertEquals(3, cnb.getStudentsWithMark().size());
+        assertEquals(3, cnb.getNotebook().size());
+        assertTrue(cnb.getNotebook().containsKey(pistike));
 
         cnb.addStudent(pistike);
-        assertEquals(3, cnb.getStudentsWithMark().size());
+        assertEquals(3, cnb.getNotebook().size());
     }
 
     @Test
     void addMark() {
+        assertEquals(0, cnb.getNotebook().get(pistike).size());
+
         cnb.addMark(pistike.getId(), 5);
         cnb.addMark(pistike.getId(), 5);
         cnb.addMark(pistike.getId(), 5);
-        assertEquals(3, cnb.getStudentsWithMark().get(pistike).size());
+        assertEquals(3, cnb.getNotebook().get(pistike).size());
     }
 }
