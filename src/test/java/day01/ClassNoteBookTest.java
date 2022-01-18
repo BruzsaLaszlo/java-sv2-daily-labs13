@@ -3,6 +3,8 @@ package day01;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -30,7 +32,7 @@ class ClassNoteBookTest {
 
     @Test
     void sortedTest() {
-        assertEquals(new TreeSet<>(Set.of(pistike, jancsi, juliska)), cnb.getNotebook().keySet());
+        assertEquals(List.of(pistike, jancsi, juliska), cnb.getNotebook().keySet().stream().toList());
     }
 
     @Test
